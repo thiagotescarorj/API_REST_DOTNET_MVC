@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ClienteDotNet.Models.DTO.Lembrete>
+
+@{
+    ViewBag.Title = "Lembrete";
+}
+
+    <h2>Lembrete</h2>
+
+<p>
+    @Html.ActionLink("Novo Lembrete", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Título
+        </th>
+        <th>
+            Mensagem
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Body)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
